@@ -13,6 +13,8 @@ class OrderAPIView(APIView):
         serializer = OrderSerializer(likes, many=True)
         return Response(serializer.data)
 
+
+class OrderCreate(APIView):
     def post(self, request, *args, **kwargs):
         serializer = OrderSerializer(data=request.data)
         if serializer.is_valid():
@@ -20,6 +22,8 @@ class OrderAPIView(APIView):
             return Response({'message': 'Like created successfully'})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+class OrderCount(APIView):
     def put(self, request, *args, **kwargs):
         order_id = kwargs.get('order_id')
         try:
@@ -43,6 +47,8 @@ class OrderAPIView(APIView):
         serializer = OrderSerializer(order)
         return Response(serializer.data)
 
+
+class OrderDelete(APIView):
     def delete(self, request, *args, **kwargs):
         pro_id = kwargs.get('pro_id')
         user_id = request.data.get('user_id')
