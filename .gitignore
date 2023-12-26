@@ -56,8 +56,6 @@ Pipfile.lock
 # Ignore migrations, as they can be auto-generated
 **/migrations/
 
-*.txt
-
 # Ignore local settings
 local_settings.py
 
