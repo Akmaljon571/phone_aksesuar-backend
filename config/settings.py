@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     # Local
     'category.apps.CategoryConfig',
     'product.apps.ProductConfig',
+    'like.apps.LikeConfig',
 ]
 
 REST_FRAMEWORK = {

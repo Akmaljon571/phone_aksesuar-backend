@@ -1,0 +1,5 @@
+category all
+product {like va product} cat_id AND user_id len(like) and len(order)
+like user_id CRD
+order user_id CRD
+AUTH JWT
