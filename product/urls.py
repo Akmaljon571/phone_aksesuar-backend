@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import ProductAllView
+from .views import ProductListByCategoryAndUser
 
 urlpatterns = [
-    path('', ProductAllView.as_view())
+    path('<int:category_id>/user/<int:user_id>/', ProductListByCategoryAndUser.as_view()),
 ]
