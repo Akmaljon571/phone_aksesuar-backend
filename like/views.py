@@ -22,7 +22,7 @@ class LikeAPIView(APIView):
 
     def delete(self, request, *args, **kwargs):
         pro_id = kwargs.get('pro_id')
-        user_id = request.data.get('user_id')  # Assuming you send user_id in the request data
+        user_id = request.data.get('user_id')
         try:
             like = LikeModel.objects.get(post_id=pro_id, user_id=user_id)
             like.delete()
