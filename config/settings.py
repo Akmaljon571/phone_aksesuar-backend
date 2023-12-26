@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
     'rest_framework_simplejwt',
+    'drf_yasg',
 
     # Local
     'category.apps.CategoryConfig',
