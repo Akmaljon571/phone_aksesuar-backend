@@ -13,6 +13,8 @@ class LikeAPIView(APIView):
         serializer = LikeSerializer(likes, many=True)
         return Response(serializer.data)
 
+
+class LikeCreate(APIView):
     def post(self, request, *args, **kwargs):
         serializer = LikeSerializer(data=request.data)
         if serializer.is_valid():
@@ -20,6 +22,7 @@ class LikeAPIView(APIView):
             return Response({'message': 'Like created successfully'})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class LikeDelete(APIView):
     def delete(self, request, *args, **kwargs):
         pro_id = kwargs.get('pro_id')
         user_id = request.data.get('user_id')
