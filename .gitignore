@@ -6,11 +6,8 @@ __pycache__/
 
 # Local development settings
 *.log
-*.sqlite3
-db.sqlite3
 
-# Media files
-media/
+
 
 # Static files
 staticfiles/
