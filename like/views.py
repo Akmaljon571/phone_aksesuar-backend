@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from .serializers import LikeSerializer
+from .serializers import LikeSerializer, LikeCreateSerializer
 from .models import LikeModel
 
 
@@ -16,7 +16,7 @@ class LikeAPIView(APIView):
 
 class LikeCreate(APIView):
     def post(self, request, *args, **kwargs):
-        serializer = LikeSerializer(data=request.data)
+        serializer = LikeCreateSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'Like created successfully'})

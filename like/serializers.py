@@ -17,3 +17,10 @@ class LikeSerializer(serializers.ModelSerializer):
         model = LikeModel
         fields = ('id', 'pro_id', 'user_id')
 
+
+class LikeCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = LikeModel
+        fields = ('id', 'pro_id', 'user_id')
+
