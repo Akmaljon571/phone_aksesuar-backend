@@ -19,11 +19,9 @@ class UserRegistrationView(generics.CreateAPIView):
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
 
-        # Generate the access token
         refresh = RefreshToken.for_user(user)
         access_token = str(refresh.access_token)
 
-        # Include the access token in the response
         response_data = {
             'access_token': access_token,
             'user_id': user.id,  # You can include additional user-related information
@@ -38,7 +36,6 @@ class UserLoginView(generics.CreateAPIView):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-
         user = authenticate(
             request=self.request,
             username=serializer.validated_data['username'],
@@ -46,7 +43,6 @@ class UserLoginView(generics.CreateAPIView):
         )
 
         if user:
-            # Generate the access token
             refresh = RefreshToken.for_user(user)
             access_token = str(refresh.access_token)
 
