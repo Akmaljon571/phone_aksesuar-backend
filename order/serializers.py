@@ -10,3 +10,10 @@ class OrderSerializer(ModelSerializer):
     class Meta:
         model = OrderModel
         fields = '__all__'
+
+
+class OrderCreateSerializer(ModelSerializer):
+
+    class Meta:
+        model = OrderModel
+        fields = '__all__'
