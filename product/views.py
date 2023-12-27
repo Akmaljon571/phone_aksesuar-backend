@@ -5,6 +5,7 @@ from .serializers import ProductSerializer
 from like.models import LikeModel
 from order.models import OrderModel
 
+
 class ProductListByCategoryAndUser(generics.ListAPIView):
     serializer_class = ProductSerializer
 
@@ -17,7 +18,7 @@ class ProductListByCategoryAndUser(generics.ListAPIView):
         if user_id:
             queryset = queryset.annotate(
                 liked=Exists(LikeModel.objects.filter(user_id=user_id, pro_id=OuterRef('id'))),
-                ordered=Exists(OrderModel.objects.filter(user_id=user_id, product_id=OuterRef('id')))
+                ordered=Exists(OrderModel.objects.filter(user=user_id, product=OuterRef('id')))
             )
 
         return queryset
